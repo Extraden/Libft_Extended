@@ -6,26 +6,18 @@
 /*   By: tsargsya <tsargsya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:07:00 by tsargsya          #+#    #+#             */
-/*   Updated: 2025/04/27 13:35:28 by tsargsya         ###   ########.fr       */
+/*   Updated: 2025/05/20 23:21:27 by tsargsya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == 0)
-		return ((char *)s);
-	return (NULL);
-}
-
+/**
+ * @brief Joins two strings until a newline character is found.
+ * @param line The original line.
+ * @param buffer The buffer to join.
+ * @return The newly allocated string, or NULL on error.
+ */
 char	*strjoin_till_nl(char *line, char *buffer)
 {
 	char	*str;
@@ -53,19 +45,4 @@ char	*strjoin_till_nl(char *line, char *buffer)
 		str[j++] = buffer[i++];
 	str[j] = '\0';
 	return (free(line), str);
-}
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t	i;
-
-	if (dest == NULL && src == NULL)
-		return (dest);
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return (dest);
 }

@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_functions.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsemenov <dsemenov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsargsya <tsargsya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 13:49:03 by tsargsya          #+#    #+#             */
-/*   Updated: 2025/05/18 19:14:26 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/05/20 23:17:56 by tsargsya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
-ssize_t	ft_putchar_fd(int fd, char c)
-{
-	if (write(fd, &c, 1) == -1)
-		return (-1);
-	return (1);
-}
-
+/**
+ * @brief Writes a string to a file descriptor.
+ * @param fd The file descriptor to write to.
+ * @param s The string to write.
+ * @return The number of characters written, or -1 on error.
+ */
 ssize_t	ft_dputstr(int fd, char *s)
 {
 	ssize_t	len;

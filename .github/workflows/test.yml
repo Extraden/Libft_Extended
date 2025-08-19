@@ -1,0 +1,25 @@
+name: Libft Auto-Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Clone repo
+      uses: actions/checkout@v3
+
+    - name: 🧰 Install tools
+      run: sudo apt update && sudo apt install -y build-essential
+
+    - name: ⚙️ Compile libft
+      run: |
+        make -C .
+
+    - name: 🧪 Compile tester and run
+      run: |
+        cc -Wall -Wextra -Werror -I. tests/libft_tester.c libft.a -o run_tests
+        ./run_tests

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsargsya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsargsya <tsargsya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 16:09:51 by tsargsya          #+#    #+#             */
-/*   Updated: 2024/12/13 18:17:25 by tsargsya         ###   ########.fr       */
+/*   Created: 2024/12/10 16:04:48 by tsargsya          #+#    #+#             */
+/*   Updated: 2025/05/20 22:00:05 by tsargsya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+/**
+ * @brief Counts the number of elements in a list.
+ * @param lst The beginning of the list.
+ * @return The number of elements in the list.
+ */
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*tmp;
+	size_t	i;
 
-	if (!lst)
-		return ;
-	if (!*lst)
+	i = 0;
+	while (lst != NULL)
 	{
-		*lst = new;
-		return ;
+		lst = lst->next;
+		i++;
 	}
-	tmp = *lst;
-	while (tmp->next != NULL)
-	{
-		tmp = tmp->next;
-	}
-	tmp->next = new;
+	return (i);
 }
